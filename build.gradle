@@ -79,7 +79,7 @@ task runDesktopOnLambdaTest(type: Test) {
 	systemProperties['lambdaTestCloud'] = 'true'
 	systemProperties['webdriver.capabilities.LT:Options.user'] = project.hasProperty('userName') ? userName : ''
 	systemProperties['webdriver.capabilities.LT:Options.accessKey'] = project.hasProperty('accessKey') ? accessKey : ''
-	systemProperties['webdriver.remote.url'] = project.hasProperty('userName') && project.hasProperty('accessKey') ? 'https://' + "shubhamr" + ':' + "dl8Y8as59i1YyGZZUeLF897aCFvIDmaKkUU1e6RgBmlgMLIIhh" + '@hub.lambdatest.com/wd/hub' : ''
+	systemProperties['webdriver.remote.url'] = project.hasProperty('userName') && project.hasProperty('accessKey') ? 'https://' + userName + ':' + accessKey + '@hub.lambdatest.com/wd/hub' : ''
 	systemProperties['webdriver.capabilities.LT:Options.platformName'] = 'ios'
 	systemProperties['webdriver.capabilities.browserName'] = 'Safari'
     systemProperties['webdriver.capabilities.LT:Options.browserName'] = 'Safari'
