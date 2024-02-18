@@ -3,10 +3,10 @@ name: Run Desktop on Lambda Test
 on:
   push:
     branches:
-      - main  # or any branch you want to trigger the workflow
+      - mobile_runs  # or any branch you want to trigger the workflow
   pull_request:
     branches:
-      - main  # or any branch you want to trigger the workflow
+      - mobile_runs  # or any branch you want to trigger the workflow
 
 jobs:
   build:
