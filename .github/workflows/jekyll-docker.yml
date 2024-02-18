@@ -1,8 +1,12 @@
 name: Run Desktop on Lambda Test
 
 on:
-  schedule:
-    - cron:  '0 */3 * * *'  # Runs at minute 0 past every 3rd hour.
+  push:
+    branches:
+      - main  # or any branch you want to trigger the workflow
+  pull_request:
+    branches:
+      - main  # or any branch you want to trigger the workflow
 
 jobs:
   build:
@@ -19,5 +23,7 @@ jobs:
 
       - name: Run Desktop on Lambda Test
         run: |
-          ./gradlew clean runDesktopOnLambdaTest "-PuserName=shubhamr" "-PaccessKey=${{ secrets.ACCESS_KEY }}" "-Pplatform=ios" -Pbrowser=Safari "-PbrowserVersion=16.0" -Presolution=2560x1440 "-PrunName=Serenity Local"
+          ./gradlew clean runDesktopOnLambdaTest "-PuserName=shubhamr" "-PaccessKey=dl8Y8as59i1YyGZZUeLF897aCFvIDmaKkUU1e6RgBmlgMLIIhh" "-Pplatform=ios" -Pbrowser=Safari "-PbrowserVersion=16.0" -Presolution=2560x1440 "-PrunName=Serenity Local"
         shell: bash  # Ensures the use of Bash shell even on Windows
+
+      # Add any other steps here, such as caching dependencies
