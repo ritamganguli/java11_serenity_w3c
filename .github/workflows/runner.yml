@@ -2,7 +2,7 @@ name: Run Desktop on Lambda Test
 
 on:
   schedule:
-    - cron: '0 */3 * * *'  # Runs at minute 0 past every 3rd hour
+    - cron: '0 */7 * * *'  # Runs at minute 0 past every 3rd hour
 
 jobs:
   build:
