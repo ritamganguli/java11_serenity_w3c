@@ -18,6 +18,29 @@ public class Init {
 	}
 	return appUrl;
   }
+  public static void captureScreenshot(String fileName) {
+        if (driver == null) {
+            initializeWebDriver();
+        }
+        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+            File destinationFile = new File(fileName + "_" + timestamp + ".png");
+            ImageIO.write(ImageIO.read(screenshot), "png", destinationFile);
+            System.out.println("Screenshot saved to " + destinationFile.getAbsolutePath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        initializeWebDriver();
+        driver.get(getAppUrl());
+        captureScreenshot("screenshot");
+        driver.quit();
+    }
+}
+ß
 
 
 
